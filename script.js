@@ -250,95 +250,192 @@ const countryList = {
     "AX": "Åland Islands"
 };
 
-window.onload = function(){
+
+window.onload = function () {
     addCountries();
     display_navigation_bar();
+
+
+
+    // testing stuff here 
+    test();
+
+
+
 }
 
 
 function addCountries() {
-    let element; 
+    let element;
     let flag_image;
     let country_name;
     let container = document.querySelector(".container");
-    const alphabets = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
-    'M', 'N', 'O', 'P', 'Q', 'R',  'S', 'T', 'U', 'V', 'W', 'X',
-    'Y', 'Z' ];
+    const alphabets = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+        'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
+        'Y', 'Z'];
     for (let key in countryList) {
         let color = getColor();
         element = document.createElement('div');
         flag_image = document.createElement('img');
-        element.classList.add("country_tile",countryList[key].charAt(0));
-        if(alphabets.includes(countryList[key].charAt(0).toUpperCase())){
-            element.setAttribute('id',countryList[key].charAt(0).toUpperCase());
-            alphabets.splice(alphabets.indexOf(element.id),1);
+        element.classList.add("country_tile", countryList[key].charAt(0), key);
+        if (alphabets.includes(countryList[key].charAt(0).toUpperCase())) {
+            element.setAttribute('id', countryList[key].charAt(0).toUpperCase());
+            alphabets.splice(alphabets.indexOf(element.id), 1);
         }
         element.style.background = color;
         flag_image.className = 'country_flag';
-        flag_image.src = 'https://countryflagsapi.com/svg/'+key;
+        flag_image.src = 'https://countryflagsapi.com/svg/' + key;
         country_name = document.createElement('p');
         country_name.className = "country_name";
         country_name.innerText = countryList[key];
         element.appendChild(flag_image);
         element.appendChild(country_name);
         container.appendChild(element);
+        element.addEventListener('click', function () {
+            getCountry(key, countryList[key]);
+        });
     }
 }
 
-function getColor(){
-    let i  = Math.floor(Math.random() * (6));
-    let colors = ['#F7D8FF' , '#FFF6D4' , '#C7DDFF' , '#D6EDE6' , '#FAD8CD' , '#E8FFC3'] ;
+function getColor() {
+    let i = Math.floor(Math.random() * (6));
+    let colors = ['#F7D8FF', '#FFF6D4', '#C7DDFF', '#D6EDE6', '#FAD8CD', '#E8FFC3'];
     return colors[i];
 
 }
 
-
-function display_navigation_bar(){
+function display_navigation_bar() {
     let navigation_bar = document.querySelector(".navi_bar");
     let p;
-    const alphabets = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',  'S', 'T', 'U', 'V', 'W', 'X','Y', 'Z' ];
-    for(let i = 0;i<26;i++){
+    const alphabets = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'Y', 'Z'];
+    for (let i of alphabets) {
         p = document.createElement('a');
         p.className = 'alphabets';
-        p.innerText = alphabets[i];
-        p.href = '#'+i;
-       
+        p.innerText = i;
+        p.href = "#" + i;
         p.style.background = getColor();
-        
+        let color_copy = getColor();
         navigation_bar.appendChild(p);
-        p.onclick = alphabets_click(alphabets[i]);
+        // p.addEventListener('click', function () {
+        //     let country = document.getElementById(i);
+        //     country.style.transform
+        //     let color_code = country.style.backgroundColor;
+        //     country.style.background = "#808080";
+        //     setTimeout(change_color(country, color_code) , 2000);
+
+        // });
     }
 }
 
-function alphabets_click(alpha_id){
-    console.log('called ');
-    setTimeout(nothing , 500);
-    let country_tile = document.querySelector(`#${alpha_id}`);
-    console.log(country_tile);
-    let background =  country_tile.style.backgroundColor;
-    country_tile.style.background = "#000000";
-    setTimeout(change_background(background , country_tile) , 2000);
-}
 
-function change_background(color , country_tile){
-        country_tile.style.background = color;
-        console.log(color , country_tile);
-}
-function nothing(){
-    console.log("nothing is called");
-}
-
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
     var top_scroll_button = document.querySelector(".top_button");
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    top_scroll_button.style.display = "block";
-  } else {
-    top_scroll_button.style.display = "none";
-  }
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        top_scroll_button.style.display = "block";
+    } else {
+        top_scroll_button.style.display = "none";
+    }
 }
 function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
-  }
+}
+
+// function change_color( country , color_code) {
+//     console.log(country);    
+//     country.style.background = "rgba(0,0,0,0))";
+//     console.log(color_code);
+// }
+
+
+
+
+
+// testing stuff here 
+function test() {
+    let information = document.querySelectorAll(".specific_country_info");
+    for (let i of information) {
+        i.style.background = getColor();
+    }
+}
+
+
+function getCountry(element, name) {
+    console.log(document.querySelectorAll('.' + element));
+    fetch('https://restcountries.com/v3.1/alpha/' + element)
+        .then(res => res.json())
+        .then(data => initialize(data))
+        .catch(err => console.log('Error:', err.message));
+    function initialize(data) {
+        console.log(data);
+        data = data[0];
+        // getData(data);
+        document.querySelector('#specific_id').scrollIntoView();
+        let country_flag_specific = document.querySelector('#specific_country_flag').src = 'https://countryflagsapi.com/svg/' + element;
+        let country_name = document.querySelector('.specific_country_name').textContent = name;
+        let capital_name = document.querySelector('.specific_country_capital').textContent = data.capital;
+        let maps_button = document.querySelector('#maps_button').href = Object.values(data.maps)[0];
+        let continent = document.querySelector('#continent').textContent = 'Continent : ' + data.continents;
+        let subregion = document.querySelector('#subregion').textContent = 'Sub Region : ' + data.subregion;
+        let currency = document.querySelector("#currency").textContent = 'Currency : ' + Object.values(data.currencies).filter(c => c.name).map(c => `${c.name} (${c.symbol})`).join(", ");
+        let population = document.querySelector('#population').textContent = 'Population :' + getSimplifiedNumber(data.population);
+        let callcode = document.querySelector('#callcode').textContent = 'Dialer Code : ' + data.idd['root'] + data.idd['suffixes'];
+        let language = document.querySelector('#language').textContent = 'Languages : ' + Object.keys(data.languages).map(function(k){return data.languages[k]}).join(', ');
+        let timezone = document.querySelector('#timezone').textContent = 'Time Zone : ' + data.timezones[0];
+
+
+
+        let specific_div = document.querySelector('.specific').style.display = 'block';
+       
+
+
+    }
+}
+
+
+// function getData({
+//     name,
+//     capital,
+//     callingCodes,
+//     population,
+//     currencies,
+//     region
+// }) {
+//     console.log({
+//         name,
+//         capital,
+//         callingCodes,
+//         population,
+//         currencies,
+//         region
+//     });
+
+// }
+
+function getSimplifiedNumber(population) {
+
+    // Nine Zeroes for Billions
+    return Math.abs(Number(population)) >= 1.0e+9
+
+        ? (Math.abs(Number(population)) / 1.0e+9).toFixed(2) + "B"
+        // Six Zeroes for Millions 
+        : Math.abs(Number(population)) >= 1.0e+6
+
+            ? (Math.abs(Number(population)) / 1.0e+6).toFixed(2) + "M"
+            // Three Zeroes for Thousands
+            : Math.abs(Number(population)) >= 1.0e+3
+
+                ? (Math.abs(Number(population)) / 1.0e+3).toFixed(2) + "K"
+
+                : Math.abs(Number(population));
+
+}
+
+
+function close_window() {
+    console.log("window is closed");
+    let f = document.querySelector('.specific').style.display = '';
+    console.log(f);
+}
