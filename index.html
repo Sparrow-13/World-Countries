@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 
 <head>
-    <title>World Countries</title> 
-    <script src="script.js"></script>
+    <title>World Countries</title>
     <link rel="stylesheet" href="index.css">
+    <style>
+
+    </style>
+    <script src="script.js"></script>
+
 </head>
 
 <body>
@@ -16,8 +20,33 @@
     <div class="navi_bar">
 
     </div>
-    <div class="specific">
-        <div class="specifi_country_flag"></div>
+    <div class="specific" id="specific_id">
+        <div class="upper_div">
+            <div class="flag_info_div">
+                <div class="flag_div">
+                    <img title="afghanistan flag" src="https://countryflagsapi.com/svg/af" id="specific_country_flag">
+                </div>
+                <div class="name_info_div">
+                    <p class="specific_country_name">India</p>
+                    <p class="specific_country_capital">New Delhi</p>
+                    <div class="maps_button"><a href="#" id="maps_button"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAAKGklEQVR4nOWba2wc1RXHf3d3veu1148Y4kIcP1JTkpSKiLakhFKctNBCq7ZqKlUqjQoS0Fb90A9QIKpEQKpaoSJUoUp9AaUipR+aCioa2oQEtYGEBqgTAnF4OI6xXbyJYzvYXnu9z9MP61nPztydmZ1NYqr+pasd3zn3nnP+95xzZ9Z34f8cyqtg/5ysJMijCjYCEWNg8VPZJ9RNLj4MEs21iOVvzadZxujPF/rTAvsQbvVMwEBKdgt83s1x84RWZ92cN2A1SjenFyLMMub+/GLfP7xHQEomAtDi5rhutYp/e2RAWazSRZUTEV5JQEgGvJkEAcURs/OK0ia6JpZWTs7HOKt+84JomypdrEDh4p+eCZAsNyt4TilSjo77cbgSQpyIUHZHS64X780L/D2Y4zbPKeCGPpFwbZo7gZ8WSbPInI0aoEtBXVpYUmIoL9yWifDCZUqlnXRVhT6RWG2aGWt+Wq+9QOu0pU9Xh7Qk5LmuO6qe1+kJVWhXWfSJhMNpfmAtQga8FsAiHJam6KjYZZVFUAQytbxSbq5QwTgJDqS5D7hFQbsxkbnYGfrKVVXSpbkZTsSpGztGOHGS6MghsrFWpjs3MNV5DQslyBlmwtziVAq2mvkoDlFQk+JTwF7dUAXQn5IHFNxjHuzFeetK1yTiNMQPEYsfIpyIL2oZH1u8DgRJN69ketU1THzkBvI1Ua1/bnlv/aw/dYSmgb1EJgdQuQy56DJOXfNDMvWtCAxJntuTEfZpa0B/SsYVXFBuyzBXYysZNYk4sXiv3WkzTo/p+5Ui27Cc6Y71jK/5Ktm6FsfctxIRO3WE5uN7qD0zgMpmbNPnapv4z40PLdq8uHCjAtvTYbYpgOMpOaOgWbef6pyvmRklFj9Efby3vNMlBJx2lwFydU0k2q5gfO1XSDV3giUKjZVuGdhDdPK41ulSKIY3P1o2egUeMAj4iYIfWUPfOjA2vJ+mwb3enDZjbLwyeSAfjTF30UeZWXklKqhoeK+XOk9Ol2Lo64/ZFtKUuqMhgJEw93WkCSrFd41IsFbwxsE9XHBsR8WOFFVViEByhtjgy8QGX4amZp96F7WbiyKLJEgAYJNS2e6I2roqrJZ1hZXqDCuVy9Epwm6DsaYTe/D9LHfWHgn9qbbCFOVPlH0O6I6q4YGkfIcAQwCh+UlHlh1R8UPA2RsvpuUv7miK95TwRDLM/Y4PQiKI7aHDlxVVjK1ygg9HrO+WpShLwMictKWD/GaxEFbhRbUEVE1geYRG5qQtF+QRFJsU1BoOZ2xKqyFg6VLADaFskMeU4gu6rcLcljYCziEBKNYvtRE2rFgLq3tgxceg4cJC9ZqdgFNvweBLMNZ/1lSFFLyuoMdp9aXaKuiVvPoW+Oz3YdWV9ntNbYV26edgpBcO/h6S7/u3aQGBXI5vA88DaWfRKjdjt7asHb7xoN55K9o/AV+8HxpXuM/rAs9fiMift/gPgZFp5/u1MfjmQ9B0UWXzJsZh572Qmikrom550tFHz98JVhcBLq3n9sqdB4hdCJ+8yXluF3j/RqiaIug0tKUd1vTY+1NT0L8TJhcK3rJu6L4B6paXynV/Gl5/BqZGfZl2niLA4faaa+3/CEhNwasPw+k3IDdfaON90PvLwj0zVABWXeU7AiogoBo4MNB1hV28/6+QmbXLZufg+E67fNvlDjqcUcGXoucoBRo/ZO+bfLv8oMm37X0Ny32bt/QEhKOazvxC00HTH673XaO8p4BbJffbZibsupZdQtmQblltl0+M+34OWPoiGH/Hrqr7SxCqtQvX1MElX7bLnx5wUOCMpSfg7ZfsqupaYf1d0LoOQpFCa10HV94JEc3XYycO+t4FzlMNcBh7/BVIzkC0obQ/0gyX3ew+9/wMjLzm27ylj4BMGg7/zZ/1AMd2QzbloMAZS18EReDfOyHr8i6mQzYFR3c5z33WCDhXESDA9AT0PuvdFANHd8Ps+85zu+CDQYAAB3ZAOundnPQcHH7aPbpcUAEBef/NSxokzsALf/Ruzqt/gqTLa7YHnKcagLf2r6dh7F13WyZH4PVnvek+awRUlQIeWy4Lu37tbsr+xwuy/zsEVCA+8Boc21/ejP4DMHTY+3wu+OARIMCzv4Jkwm5Ceg5e/F1l6eeC4pPgqEhdOs1WUdwkQpdAsITIp270zpUVHgwpwfQ47PotfO2O0v59jxZefCrA8ZSI6eBHTsG7SngyEOaBdqUKByVHRKLpDHuV4l4F3UoRtB40PK8RIEDvbnjn1UVPho/AsecrW30R65GfoIJuUWzLZdg7IhINAGTTbAU2OHNZDQE+219+DvETMHYCnnuYinYUlxogcHU2zd2FFFB8y7hhPUhQSoBP+B36/jj84nuwPOJbte7Al8msLQvH5Gi3/g/dOknFeWzRVBX86g7Za3wxOArB1B4CUDACdBtq9MdJqiGgygOpPlXPXrK+7JmnBQyHAPLwpBK2aY+pF1Oh3Hd0eqQau5hq6yGx/OOELx2m6Z0D1J94g8D0fOWeVBgBEgkxu7aH8Z479D/AKC4qf1CwsAuk2avg6nKMdT51PSqfdVScauxipm0j020bmW/sLNptzCFAZHKQ5b07aHjrZUITU954bQ27ikgkRKptNVOXb2auY4PjcT8pGHMgEOG6IkGDIrWkuUcptgisWtgyigNb92+l7uRBm+J0YxczKzcys2IjqcYum8MLykpCz7gOJSe58PAOmo6+QM3oKchVRoBEQsy3rWZq3WZmOzaUninUL2ROhEGB7YEwP1ul1HzZ5OwTCceyXKuEx/LQoVLTXND7IHUnD5KJtTPb9hkSKzeRauxadFiz4ubP4rUmolU2RcvRZ2h+bTeR4SFIm0LDRICEg8y3r+HMus3MdVyt+23AUDDArYkQL1qPxergWp2GMnI9wnPmdDBvx+g+LURYr619NiMkT/Obu2h4cx81E3FoDpNuamN67Q3Mdm7QHqE1truA4rrOGv3ReB1cCXhLpCGaYdow2EqC2ZFyRJj7/BjmdEja+DRk6mtoaFVK8yKhh+vLUDjLVeaV0uVY2aYo+RlLRa2SsSaCklmu8uq8MUaLPpFwNMVGFI8oRYeZbd1K68LdLQW8GmZdceO6zC9GhpTi9kTIfjReq6dfJJJL8WMFW5TiYlteGX8ruyHWlABnp72SYF0VLRmWbc48v7HdWWyMA9tTYe41ExPKFJy/qyitNK8BpntmQ0oMtVpRBRwJKFMPnOrTwvXFAnfXpBBga3G+vnmJB+Aia0HRbC+u0WD+NAwxw3cEKPs9t1Uv9lnuC5xcU6suNuYLiSB5VaiGxZW3rLbVONHc14pbOz0ycI5/OVryuBXIK7aLLPye1jzQYcIim2Lpo4LK7tQc5rDq09nh4DwibDcTEIpG2JZMQUDYklesKNkXyz6peJPR5bJbEOhUaXcYl6dOzSKOKtier+U+89z/BQw2iFjQQ9RdAAAAAElFTkSuQmCC"  title="Open Maps" /></a></div>
+                </div>
+                <img id="close_button" onclick="close_window()  " src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABKUlEQVRoge2Y3QqCQBCFTz1gVhhd1LMXFFlRb2BgF+1AySr+nFknmA+6Cs6cT9EdBBzHcRynnQ2AJ4ALgGWCeSsAVwAPAPnYsFkIqsKvBLAdG9rCNsyQeQ9G6P0rUFOiXr4CcGMEryPBbIlY+TLMppBHBrwA7AnZm4bsHSH7Bw2JZOUFpkTy8gJDYrLywhiJycsLQyTMlBf6SJgrL3SRMFteaJMwX15oOk21T3EqsTth/srXaZJQKT9nB+Kzgg/5zwSxB1ZjAVThrx/itlel5ipOoct73qxEn0PKnMSQE9aMxJj1YHIJxm4zmQRzMUsuobFVJpPQXInVJbLIgFQftjJG+DkSnOrT4okRXEC/vFCXKBihGT5X4gDSLe0w7xhmLhLMcxzHcf6YN40nPfgApMhMAAAAAElFTkSuQmCC"/>
+                
+            </div>
+            <!-- <div class="pop_div">
+                
+            </div> -->
+        </div>
+        <div class="lower_div">
+            <p class="specific_country_info" id="continent">Continent : Asia</p>
+            <p class="specific_country_info" id="subregion">Sub Region : Southern Asia</p>
+            <p class="specific_country_info" id="currency">Currency : Rupee</p> 
+            <p class="specific_country_info" id="population">Population : 138000000000</p>
+            <p class="specific_country_info" id="callcode">Call code : +91</p>
+            <p class="specific_country_info" id="language">Languages : Hindi , English</p>
+            <p class="specific_country_info" id="timezone">Timezone : UTC(+05:30)</p>
+        </div>
     </div>
     <div class="container">
 
